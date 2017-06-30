@@ -1,0 +1,27 @@
+{
+	"values":[
+		{
+			"name": "Iliyan",
+			"city": "Cherven Bryag"
+		},
+		{
+			"name": "Dilyan",
+			"city": "Lom"
+		},
+		{
+			"name": "Ivelin",
+			"city": "Belene"
+
+		},
+		{
+			"name": "Veronika",
+			"city": "Vidim"
+
+		},
+		{
+			"name": "Stanislava",
+			"city": "Burgas"
+
+		}
+	]
+}

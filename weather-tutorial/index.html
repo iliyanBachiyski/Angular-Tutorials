@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="weatherApp">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="https://code.angularjs.org/1.6.4/angular-route.min.js"></script>
+    <script src="app.config.js"></script>
+    <link rel="stylesheet" type="text/css" href="app.css">
+    <script src="controller/logincontroller.js"></script>
+    <script src="controller/weathercontroller.js"></script>
+    <script src="controller/registercontroller.js"></script>
+    <script src="service/weatherservice.js"></script>
+    <script src="service/userservice.js"></script>
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Weather Application</title>
+    </head>
+
+    <body>
+
+        <div ng-view></div>
+
+    </body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html ng-app="myAngularApp">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	<script src="https://code.angularjs.org/1.6.4/angular-route.min.js"></script>
+	<head>
+		<title>Angular Example</title>
+	</head>
+	<body>
+
+		<!--Directives Example (Use ng-init and ng-model to store some value, Use ng-bind to set value from ng-init or ng-model to template ) -->
+		<div ng-init="init_text">
+			<input type="text" ng-model="input_text">
+			<p ng-bind="input_text"></p>
+			<input type="text" ng-model="init_text"><br>
+			{{init_text}}
+		</div>
+
+		<!--Repeat Example (Use ng-repeat directive to repeat objects from array) -->
+		<div ng-init="myFavPets=[{type:'horse'},{type:'cat'},{type:'dog'}]">
+			<p ng-repeat="pet in myFavPets">{{pet.type}}</p>
+		</div>
+
+		<!--Controller Example (Use ng-controller directive to set controller) -->
+		<div ng-controller="customController">
+			<p>Select Pet</p>
+			<button ng-repeat="pet in pets" ng-click="changeSelectedPet(pet)">{{pet.type}}</button>
+			<p>You select: {{selectedPet}}</p>
+		</div>
+
+		<!--Filter Example (Use ' | ' symbol to set filter) -->
+		<div>
+			<p>Insert Price: </p><input type="text" ng-model="price"><br>
+			<p>Your price is: {{price | currency}}</p>
+		</div>
+
+		<!--Include Example (Use ng-include to load external file) -->
+		<div ng-include="'someFile.html'"></div>
+
+		<!--Provider Example (Use ng-view to display data. Using <div> like a container for custom routing template) -->
+		<div ng-view></div>
+
+	</body>
+
+	<!--Controller Example with Provider Configuration for custom URL's (Simple example of controller declaration) -->
+	<script type="text/javascript">
+		var module = angular.module('myAngularApp',['ngRoute']);
+		module.controller('customController',['$scope',function ($scope) {
+			$scope.selectedPet = 'None';
+			$scope.pets = [{type:'horse'},{type:'cat'},{type:'dog'}];
+
+			$scope.changeSelectedPet = function(pet){
+				$scope.selectedPet = pet.type;
+			}
+		}]);
+
+		module.config(['$routeProvider',function($routeProvider){
+			$routeProvider
+			.when('/',{
+				templateUrl: 'homePage.html'
+			})
+			.when('/secondPage',{
+				templateUrl: 'secondPage.html'
+			})
+			.otherwise({
+				redirectTo: '/'
+			});
+		}]);
+	</script>
+</html>

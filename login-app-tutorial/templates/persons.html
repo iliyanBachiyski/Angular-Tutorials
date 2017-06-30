@@ -1,0 +1,16 @@
+<div ng-controller="requestController">
+	<h1>Show Data After HTTP(GET) Request</h1>
+	<div style="margin-left: 20px">
+		<!--Glogal search by all fields!-->
+		<h3 style="margin-bottom: 5px">Type Name or City Here</h3>
+		<input type="text" ng-model="searchText.$" placeholder="Global Search">
+		<!--Search only by name!-->
+		<h3 style="margin-bottom: 5px">Type Name Here</h3>
+		<input type="text" ng-model="searchText.name" placeholder="Search by Name">
+	</div>
+	<ul>
+		<li style="font-size: 20px; font-style: italic" ng-repeat='person in persons | filter: searchText'>
+			{{'Name: ' + person.name + ', ' + 'City: ' + person.city}}
+		</li>
+	</ul>
+</div>

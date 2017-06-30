@@ -1,0 +1,28 @@
+<h1>Welcome To Weather Application Home Page.</h1>
+<div>
+    <h3>Input Your City or Search By Current Location</h3><br>
+
+    <input type="text" ng-model='city'><br>
+
+    <button ng-click='getByCity(city)'>Search Weather Information</button><br>
+    <button ng-click='getByCurrentPosition()'>Search From Current Position</button>
+</div>
+
+<div ng-show="weatherInfo.length > 0" class="margin-top">
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Temperature</th>
+            <th>Humidity</th>
+            <th>Min_Temperature</th>
+            <th>Max_Temperature</th>
+        </tr>
+        <tr ng-repeat="weatherObj in weatherInfo">
+            <td>{{weatherObj.name}}</td>
+            <td>{{weatherObj.main.temp - 273.15 | number:1}} &#8451</td>
+            <td>{{weatherObj.main.humidity}}</td>
+            <td>{{weatherObj.main.temp_min - 273.15 | number:1}} &#8451</td>
+            <td>{{weatherObj.main.temp_max - 273.15 | number:1}} &#8451</td>
+        </tr>
+    </table>
+</div>

@@ -1,0 +1,20 @@
+h1 {
+    text-align: center;
+}
+
+h3 {
+    text-align: center;
+}
+
+input {
+    margin-bottom: 10px
+}
+
+table, th, td {
+    border: 1px solid black;
+    text-align: center;
+}
+
+.margin-top {
+    margin-top: 10px;
+}
