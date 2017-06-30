@@ -27,7 +27,7 @@ application.config(['$routeProvider', function($routeProvider){
                     }
                 },
                 weaherData: function (WeatherService) {
-                    return WeatherService.getWeatherByCurrentPossition();
+                    return WeatherService.getWeatherByCurrentPosition();
                 }
             }
         })

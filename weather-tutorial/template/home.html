@@ -13,16 +13,46 @@
         <tr>
             <th>Name</th>
             <th>Temperature</th>
+            <th>Description</th>
             <th>Humidity</th>
             <th>Min_Temperature</th>
             <th>Max_Temperature</th>
         </tr>
         <tr ng-repeat="weatherObj in weatherInfo">
-            <td>{{weatherObj.name}}</td>
+            <td>{{weatherObj.name}},{{weatherObj.sys.country}}</td>
             <td>{{weatherObj.main.temp - 273.15 | number:1}} &#8451</td>
+            <td ng-show="weatherObj.weather[0].description">{{weatherObj.weather[0].description}}</td>
+            <td ng-show="!weatherObj.weather[0].description">No Description for this Location!</td>
             <td>{{weatherObj.main.humidity}}</td>
             <td>{{weatherObj.main.temp_min - 273.15 | number:1}} &#8451</td>
             <td>{{weatherObj.main.temp_max - 273.15 | number:1}} &#8451</td>
+        </tr>
+    </table>
+</div>
+
+<div ng-show="weatherInfoByCurrentLocation.name">
+    <table align="right">
+        <tr>
+            <th>Current Location</th>
+            <th>Temperature</th>
+        </tr>
+        <tr>
+            <td>{{weatherInfoByCurrentLocation.name}},{{weatherInfoByCurrentLocation.sys.country}}</td>
+            <td>{{weatherInfoByCurrentLocation.main.temp - 273.15 | number:1}} &#8451</td>
+        </tr>
+        <tr>
+            <th>Min_Temperature</th>
+            <th>Max_Temperature</th>
+        </tr>
+        <tr>
+            <td>{{weatherInfoByCurrentLocation.main.temp_min - 273.15 | number:1}} &#8451</td>
+            <td>{{weatherInfoByCurrentLocation.main.temp_max - 273.15 | number:1}} &#8451</td>
+        </tr>
+        <tr>
+            <th colspan="2" ng-show="weatherInfoByCurrentLocation.weather[0].description">
+                {{weatherInfoByCurrentLocation.weather[0].description}}
+            </th>
+            <th ng-show="!weatherInfoByCurrentLocation.weather[0].description">No Description for this Location!</th>
         </tr>
     </table>
 </div>
