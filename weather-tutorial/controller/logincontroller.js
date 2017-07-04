@@ -6,7 +6,6 @@ var app = angular.module('weatherApp');
 app.controller('logincontroller',['$scope','$rootScope', '$location','UserService', 'registeredUsers', function ($scope,$rootScope,$location,UserService,registeredUsers) {
 
     var self = this;
-    $rootScope.hasLoggedUser = false;
     $scope.position = {};
 
     self.login = function () {

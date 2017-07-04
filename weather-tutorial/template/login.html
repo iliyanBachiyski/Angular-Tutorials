@@ -1,9 +1,33 @@
-<h1>Welcome To Weather Application. Please Log In or Register</h1>
 <div>
+    <div class="header">
+        <h1>Welcome To Weather Application</h1>
+    </div>
+
+    <br>
+    Username: <input type="text" ng-model="username"><br>
+    Password: <input type="password" ng-model="password"><br>
+    <nav class="fh5co-nav-style-1" role="navigation" data-offcanvass-position="fh5co-offcanvass-left">
+        <div class="container">
+            <div class="fh5co-link-wrap">
+                <ul class="fh5co-special" data-offcanvass="yes">
+                    <li><a ng-click="loginCtrl.login()" class="call-to-action">Login</a></li>
+                    <li><a ng-click="loginCtrl.register()" class="call-to-action">Register</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<!--<div>
     <form>
         Username: <input type="text" ng-model="username"><br>
         Password: <input type="password" ng-model="password"><br>
         <button ng-click="loginCtrl.login()">Log In</button>
         <button ng-click="loginCtrl.register()">Register</button>
     </form>
-</div>
+</div>-->
+
+<!--Use for back and logout buttons -->
+<!--<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 fh5co-logo">
+    <a href="#">Voltage</a>
+</div>-->
