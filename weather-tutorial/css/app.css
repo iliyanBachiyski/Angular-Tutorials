@@ -1,52 +1,4 @@
-h1 {
-    text-transform:uppercase;
-    text-align: center;
-    font-family:Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-weight:700;
-    letter-spacing:1px;
-    font-size:40px;
-    padding: 20px 0 0 0;
-    color: whitesmoke;
-    margin: 0 0 30px 0;
-}
-
-h3 {
-    text-align: center;
-}
-
-input {
-    margin-bottom: 10px
-}
-
-table, th, td {
-    border: 1px solid black;
-    text-align: center;
-}
-
-.margin-top {
-    margin-top: 10px;
-}
-
-.header {
-    border-top:2px solid rgba(135, 135, 135, 0.48);
-    border-bottom:2px solid rgba(135, 135, 135, 0.48);
-    margin-top: 20px;
-    margin-bottom: 25px;
-    display: inline-block;
-    margin-left: 16.66666667%;
-    width: 66.66666667%;
-}
-.header-table-child {
-    display: table-cell;
-}
-
-.recent-names-list {
-    text-decoration: underline;
-    cursor: pointer;
-}
-
 body {
-    background-image:radial-gradient(circle at 50% 50%,rgba(0,0,0,0.46),rgba(0,0,0,0.88)),url('../images/background.jpg');
     -webkit-background-size:cover;
     -moz-background-size:cover;
     background-size:cover;
@@ -56,6 +8,49 @@ body {
     line-height: 26px;
     color: gray;
     font-weight: 400;
+}
+
+h1 {
+    text-transform:uppercase;
+    text-align: center;
+    font-family: Monospace,"Baskerville Old Face", Montserrat, "Helvetica Neue", Helvetica, Arial,sans-serif;
+    font-weight:700;
+    letter-spacing:1px;
+    font-size:40px;
+    padding: 20px 0 0 0;
+    color: whitesmoke;
+    margin: 0 0 30px 0;
+}
+
+h2 {
+    text-align: center;
+    font-family:Monospace,"Baskerville Old Face",Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    letter-spacing:1px;
+    color: whitesmoke;
+}
+
+input {
+    margin-bottom: 10px
+}
+
+a {
+    cursor: pointer;
+}
+
+
+.header {
+    border-top:2px solid #2b98be;
+    border-bottom:2px solid #2b98be;
+    margin-top: 20px;
+    margin-bottom: 25px;
+    display: inline-block;
+    margin-left: 16.66666667%;
+    width: 66.66666667%;
+}
+
+.recent-names-list {
+    text-decoration: underline;
+    cursor: pointer;
 }
 
 .fh5co-nav-style-1 ul li{
@@ -81,23 +76,269 @@ body {
     color: rgba(0, 0, 0, 0.43);
 }
 
-a {
-    cursor: pointer;
-}
-
 .btn {
-    padding: 10px 100px !important;
-    font-family: "Open Sans", Arial, sans-serif;
-    font-size: 12px;
-    text-transform: uppercase;
+    background: #2A88AD;
+    padding: 8px 20px 8px 20px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    color: #fff;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.12);
+    font: normal 30px 'Bitter', serif;
+    -moz-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
+    -webkit-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
+    box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
+    border: 1px solid #257C9E;
+    font-size: 15px;
     letter-spacing: 2px;
-    font-weight: 700;
-    border-radius: 4px;
     cursor: pointer;
+    margin-left: 60px;
+    margin-right: 50px;
 }
 
 .btn-outline {
-    background: none;
+    background: #2A88AD;
     border: 2px solid gray;
     color: whitesmoke;
+}
+.btn-custom-width {
+    width: 80%;
+    margin-bottom: 15px;
+    margin-left: 48px;
+}
+.full-screen-div{
+    position:fixed;
+    padding:0;
+    margin:0;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+}
+.login {
+    /*background-image:radial-gradient(circle at 50% 50%, rgba(145, 145, 145, 0.21), rgba(149, 149, 149, 0.33)),url('../images/login_background.jpg');*/
+    background-image:radial-gradient(circle at 50% 50%, rgba(145, 145, 145, 0.21), rgba(149, 149, 149, 0.33)),url('../images/another_login_background.jpg');
+}
+.home {
+    background-image:radial-gradient(circle at 50% 50%, rgba(145, 145, 145, 0.21), rgba(149, 149, 149, 0.33)),url('../images/home_background.jpg');
+}
+.register {
+    background-image:radial-gradient(circle at 50% 50%, rgba(145, 145, 145, 0.21), rgba(149, 149, 149, 0.33)),url('../images/register_background.jpg');
+}
+.logout-label {
+    padding: 10px 60px !important;
+    line-height: 12px;
+    margin-right: 2px;
+    position:absolute;
+    top: 0;
+    right:92%;
+    color: #ff6d63;
+}
+.back-label{
+    padding: 10px 80px !important;
+    text-decoration: none;
+}
+
+/* <----------- Login Template Style  https://www.sanwebe.com/2014/08/css-html-forms-designs-----------> */
+.form-style-10{
+    width:600px;
+    padding:30px;
+    margin:40px auto;
+    background: #FFF;
+    border-radius: 10px;
+    -webkit-border-radius:10px;
+    -moz-border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.13);
+    -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.13);
+    -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.13);
+}
+.form-style-10 .inner-wrap{
+    padding: 10px;
+    background: #F8F8F8;
+    border-radius: 6px;
+    margin-bottom: 15px;
+}
+.form-style-10 h1{
+    background: #2A88AD;
+    padding: 10px 30px 15px 30px;
+    margin: -30px -30px 30px -30px;
+    border-radius: 10px 10px 0 0;
+    -webkit-border-radius: 10px 10px 0 0;
+    -moz-border-radius: 10px 10px 0 0;
+    color: #fff;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.12);
+    font: normal 30px 'Bitter', serif;
+    -moz-box-shadow: inset 0 2px 2px 0 rgba(255, 255, 255, 0.17);
+    -webkit-box-shadow: inset 0 2px 2px 0 rgba(255, 255, 255, 0.17);
+    box-shadow: inset 0 2px 2px 0 rgba(255, 255, 255, 0.17);
+    border: 1px solid #257C9E;
+}
+.form-style-10 h1 > span{
+    display: block;
+    margin-top: 2px;
+    font: 13px Arial, Helvetica, sans-serif;
+}
+.form-style-10 label{
+    display: block;
+    color: #888;
+    margin-bottom: 15px;
+}
+.form-style-10 input[type="text"],
+.form-style-10 input[type="password"],
+.form-style-10 select {
+    display: block;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    width: 100%;
+    padding: 8px;
+    border-radius: 6px;
+    -webkit-border-radius:6px;
+    -moz-border-radius:6px;
+    border: 2px solid #fff;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.33);
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.33);
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.33);
+}
+
+.form-style-10 .section{
+    font: normal 20px 'Bitter', serif;
+    color: #2A88AD;
+    margin-bottom: 5px;
+}
+
+/* Table styles https://www.smashingmagazine.com/2008/08/top-10-css-table-designs/ */
+
+table th, td  {
+    width: 600px;
+}
+.hor-minimalist-a
+{
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    font-size: 12px;
+    background: none;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+th[colspan] {
+    text-align: center;
+}
+.hor-minimalist-a th
+{
+    font-size: 18px;
+    color: #039;
+    border-bottom: 2px solid #6678b1;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+.hor-minimalist-a td
+{
+    color: #669;
+    padding: 9px 8px 0px 8px;
+    font-size: 14px;
+}
+.hor-minimalist-a tbody tr:hover td
+{
+    color: #009;
+}
+
+hr {
+    background: #009;
+}
+
+/* List style (http://www.marcofolio.net/css/8_different_ways_to_beautifully_style_your_lists.html) */
+.recent-search-list {
+    color: #009;
+}
+.recent-search-list  ul { list-style:none; text-align:center; border-top:1px solid #eee; border-bottom:1px solid #eee; padding:10px 0; }
+.recent-search-list  ul li { display:inline; text-transform:uppercase; padding:0 10px; letter-spacing:10px; }
+.recent-search-list  ul li a { text-decoration:none; color:#eee; }
+.recent-search-list  ul li a:hover { text-decoration:underline; }
+
+/* #### Dark Matter #### */
+.dark-matter {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10%;
+    max-width: 500px;
+    background: #555;
+    padding: 20px 30px 20px 30px;
+    font: 12px "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #D3D3D3;
+    text-shadow: 1px 1px 1px #444;
+    border: none;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+}
+.dark-matter h1 {
+    padding: 0px 0px 10px 40px;
+    display: block;
+    border-bottom: 1px solid #444;
+    margin: -10px -30px 30px -30px;
+}
+.dark-matter h1>span {
+    display: block;
+    font-size: 11px;
+}
+.dark-matter label {
+    display: block;
+    margin: 0px 0px 5px;
+}
+.dark-matter label>span {
+    float: left;
+    width: 20%;
+    text-align: right;
+    padding-right: 10px;
+    margin-top: 10px;
+    font-weight: bold;
+}
+.dark-matter input[type="text"], .dark-matter input[type="password"]{
+    border: none;
+    color: #525252;
+    height: 25px;
+    line-height:15px;
+    margin-bottom: 16px;
+    margin-right: 6px;
+    margin-top: 2px;
+    outline: 0 none;
+    padding: 5px 0px 5px 5px;
+    width: 70%;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    background: #DFDFDF;
+}
+.dark-matter select {
+    appearance:none;
+    -webkit-appearance:none;
+    -moz-appearance: none;
+    text-indent: 0.01px;
+    text-overflow: '';
+    width: 70%;
+    height: 35px;
+    color: #525252;
+    line-height: 25px;
+}
+.dark-matter .register-button {
+    background: rgb(50, 156, 173);
+    border: none;
+    padding: 10px 25px 10px 25px;
+    color: #333;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    font-weight: bold;
+    box-shadow: 1px 1px 1px #3D3D3D;
+    -webkit-box-shadow:1px 1px 1px #3D3D3D;
+    -moz-box-shadow:1px 1px 1px #3D3D3D;
+    margin-left: 20%;
+}
+
+.dark-matter .register-button:hover {
+    color: #333;
+    background-color: #2A88AD;
 }

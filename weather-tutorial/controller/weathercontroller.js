@@ -14,6 +14,7 @@ app.controller('weathercontroller',['$scope','$rootScope','$location', '$log', '
 
     if(weatherData.name) {
         $scope.weatherInfoByCurrentLocation = weatherData;
+        $scope.recentSearchesNamesList.unshift(weatherData.name);
     }
 
     $scope.getByCity = function (city) {
@@ -28,6 +29,8 @@ app.controller('weathercontroller',['$scope','$rootScope','$location', '$log', '
                         });
                         $scope.recentSearchesNamesList.unshift(result.name);
                         $scope.currentWeatherInformation = result;
+                    } else {
+                        alert('Cannot fetch information for ' + city);
                     }
                 });
         } else {
@@ -41,6 +44,7 @@ app.controller('weathercontroller',['$scope','$rootScope','$location', '$log', '
             .then(function (result) {
                 if(result.name) {
                     $scope.weatherInfoByCurrentLocation = result;
+                    $scope.recentSearchesNamesList.unshift(result.name);
                 } else {
                     alert('Cannot fetch current position');
                 }

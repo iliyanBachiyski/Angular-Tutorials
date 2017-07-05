@@ -1,9 +1,23 @@
-<a href="#!/">Back</a>
-<h1>Please Input Your Credentials</h1>
-<div>
-    <form>
-        Username: <input type="text" ng-model="username"><br>
-        Password: <input type="password" ng-model="password"><br>
-        <button ng-click="registerCtrl.register()">Register</button>
-    </form>
+<div class="full-screen-div register">
+    <div class="header">
+        <h1>Please Input Your Credentials</h1>
+    </div>
+    <br>
+    <a class="back-label logout-label" href="#!/">Back</a>
+    <div class="dark-matter">
+
+        <h1>Registration Form<span>Please Input Your Credentials.</span></h1>
+        <label>
+            <span>Your Name :</span>
+            <input type="text" ng-model="username" placeholder="Username">
+        </label><br>
+
+        <label><span>Your Password :</span>
+            <input type="password" ng-model="password" placeholder="Password">
+        </label>
+
+        <label><span>&nbsp;</span>
+            <button class="register-button" ng-click="registerCtrl.register()">Register</button>
+        </label>
+    </div>
 </div>

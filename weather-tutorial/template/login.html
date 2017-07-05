@@ -1,19 +1,20 @@
-<div>
+<div class="full-screen-div login">
     <div class="header">
         <h1>Welcome To Weather Application</h1>
     </div>
-
     <br>
-    Username: <input type="text" ng-model="username"><br>
-    Password: <input type="password" ng-model="password"><br>
-    <nav class="fh5co-nav-style-1" role="navigation" data-offcanvass-position="fh5co-offcanvass-left">
-        <div class="container">
-            <div class="fh5co-link-wrap">
-                <ul class="fh5co-special" data-offcanvass="yes">
-                    <li><button class="btn btn-outline" ng-click="loginCtrl.login()">Login</button></li>
-                    <li><button class="btn btn-outline" ng-click="loginCtrl.login()">Register</button></li>
-                </ul>
+    <div class="form-style-10">
+        <h1>Log In Now!<span>Please Log In and Use our Weather Application</span></h1>
+        <form>
+            <div class="section">Username &amp; Password</div>
+            <div class="inner-wrap">
+                <label>Username <input type="text" ng-model="username"></label>
+                <label>Password <input type="password" ng-model="password"></label>
             </div>
-        </div>
-    </nav>
+            <div class="button-section">
+                <button class="btn btn-custom-width" ng-click="loginCtrl.login()">Login</button>
+                <button class="btn btn-custom-width" ng-click="loginCtrl.register()">Register</button>
+            </div>
+        </form>
+    </div>
 </div>
