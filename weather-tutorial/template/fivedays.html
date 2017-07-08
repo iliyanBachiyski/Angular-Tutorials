@@ -6,11 +6,22 @@
     <a class="logout-label" href="#!/" >Back</a>
     <weathermenu city="{{cityInput}}"></weathermenu>
 
-    <!--TODO: Must be implement style and controller -->
-    {{weatherArray}}
-    <div ng-show="weatherArray.length > 0">
-        <ul>
-            <li ng-repeat="obj in weatherArray">{{obj}}</li>
-        </ul>
+    <div class="loading" ng-show="weatherArray.length == 0">
+        <img src="../images/loading.gif" alt="Error">
+    </div>
+
+    <div id="pricing-table" class="hourly-table" ng-show="weatherArray.length > 0">
+        <h1>{{cityInput}}</h1>
+        <div class="plan" ng-repeat="weatherObj in weatherArray">
+            <h3>{{weatherObj.weather[0].main}}</h3>
+            <h4>{{fiveCtrl.formatTime(weatherObj.dt) | date : 'EEEE, dd-MM-yyyy'}}</h4>
+            <h3>{{fiveCtrl.formatTime(weatherObj.dt) | date : 'HH:mm'}}h</h3>
+            <img src="http://openweathermap.org/img/w/{{weatherObj.weather[0].icon}}.png" alt="Error">
+            <ul>
+                <li><b>Temperature:</b> {{weatherObj.main.temp | number:0}} &#8451</li>
+                <li><b>Humidity:</b> {{weatherObj.main.humidity}} </li>
+                <li><b>WindSpeed:</b> {{weatherObj.wind.speed}} m/s</li>
+            </ul>
+        </div>
     </div>
 </div>

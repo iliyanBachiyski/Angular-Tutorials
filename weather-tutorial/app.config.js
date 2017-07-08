@@ -48,7 +48,8 @@ application.config(['$routeProvider', function($routeProvider){
         })
         .when('/fivedays/:city',{
             templateUrl: 'template/fivedays.html',
-            controller: 'fivedayscontroller'
+            controller: 'fivedayscontroller',
+            controllerAs: 'fiveCtrl'
         })
         .when('/tendays/:city',{
             templateUrl: 'template/tendays.html',

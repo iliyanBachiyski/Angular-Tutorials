@@ -12,10 +12,12 @@ app.controller('hourlycontroller', ['$scope', '$routeParams', '$log', 'WeatherSe
     if ($scope.cityInput) {
         WeatherService.getHourlyWeatherInformation($scope.cityInput)
             .then(function (result) {
-                if (result.hourly_forecast) {
-                    $scope.weatherArray = result.hourly_forecast;
-                    var obj = $scope.weatherArray[0].FCTTIME;
-                    $scope.dayOfWeek = obj.weekday_name + ',' + obj.mon_padded + '-' + obj.mon_abbrev + '-' + obj.year;
+                if (result) {
+                    if(result.hourly_forecast) {
+                        $scope.weatherArray = result.hourly_forecast;
+                        var obj = $scope.weatherArray[0].FCTTIME;
+                        $scope.dayOfWeek = obj.weekday_name + ',' + obj.mon_padded + '-' + obj.mon_abbrev + '-' + obj.year;
+                    }
                 } else {
                     alert('Cannot fetch information for ' + $scope.cityInput);
                 }
