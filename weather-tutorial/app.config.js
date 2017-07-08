@@ -21,6 +21,16 @@ application.config(['$routeProvider', function($routeProvider){
                 }
             }
         })
+        .when('/register', {
+            templateUrl: 'template/register.html',
+            controller: 'registercontroller',
+            controllerAs: 'registerCtrl',
+            resolve: {
+                registeredUsers: function (UserService) {
+                    return UserService.getRegisteredUsers();
+                }
+            }
+        })
         .when('/home',{
             templateUrl: 'template/home.html',
             controller: 'weathercontroller',
@@ -36,15 +46,19 @@ application.config(['$routeProvider', function($routeProvider){
                 }
             }
         })
-        .when('/register',{
-            templateUrl: 'template/register.html',
-            controller: 'registercontroller',
-            controllerAs: 'registerCtrl',
-            resolve: {
-                registeredUsers: function (UserService) {
-                    return UserService.getRegisteredUsers();
-                }
-            }
+        .when('/fivedays/:city',{
+            templateUrl: 'template/fivedays.html',
+            controller: 'fivedayscontroller'
+        })
+        .when('/tendays/:city',{
+            templateUrl: 'template/tendays.html',
+            controller: 'tendayscontroller',
+            controllerAs: 'tenCtrl'
+        })
+        .when('/hourly/:city',{
+            templateUrl: 'template/hourly.html',
+            controller: 'hourlycontroller',
+            controllerAs: 'hourlyCtrl'
         })
         .otherwise({
             redirectTo : '/'

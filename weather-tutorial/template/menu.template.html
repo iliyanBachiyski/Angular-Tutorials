@@ -1,0 +1,7 @@
+<div class="recent-search-list menu-list" ng-show="menuCtrl.menuItemsList.length > 0">
+    <ul>
+        <li ng-repeat="item in menuCtrl.menuItemsList track by $index">
+            <a class="recent-names-list" ng-click="menuCtrl.goToAnotherPage(item.href,city)">{{item.name}} |</a>
+        </li>
+    </ul>
+</div>

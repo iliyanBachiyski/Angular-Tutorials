@@ -3,18 +3,17 @@
  */
 var app = angular.module('weatherApp');
 
-app.controller('weathercontroller',['$scope','$rootScope','$location', '$log', 'WeatherService', 'weatherData',
-    function ($scope, $rootScope,$location, $log, WeatherService, weatherData) {
+app.controller('weathercontroller',['$scope','$rootScope','$location', '$log', '$timeout', 'WeatherService', 'weatherData',
+    function ($scope, $rootScope,$location, $log, $timeout, WeatherService, weatherData) {
 
     var self = this;
     $scope.recentSearchesNamesList = [];
     $scope.currentWeatherInformation = {};
     $scope.weatherInfoByCurrentLocation = {};
-    $scope.showRecentSearches = false;
+    $scope.showRecentSearchesFlag = false;
 
     if(weatherData.name) {
         $scope.weatherInfoByCurrentLocation = weatherData;
-        $scope.recentSearchesNamesList.unshift(weatherData.name);
     }
 
     $scope.getByCity = function (city) {
@@ -56,4 +55,26 @@ app.controller('weathercontroller',['$scope','$rootScope','$location', '$log', '
         $location.path('/');
     };
 
+    //set $timeout to refresh data for current position every 10 minutes
+    var timeout = $timeout(function () {
+        $scope.getByCurrentPosition();
+    },60000*10);
+
+    //when $scope destroyed we need to cancel $timeout to protect yourself from memory leaks
+    $scope.$on('$destroy', function () {
+        $timeout.cancel(timeout);
+    });
+
+    //Use for scroll to recent search area when click button and scroll to page-top when the area are hiding
+    $scope.showRecentSearches = function () {
+        $scope.showRecentSearchesFlag = !$scope.showRecentSearchesFlag;
+        var element = document.getElementById('home');
+        if($scope.showRecentSearchesFlag) {
+            event.preventDefault();
+            $('html,body,div').animate({scrollTop: element.getBoundingClientRect().bottom}, 1000);
+        } else {
+            event.preventDefault();
+            $('html,body,div').animate({scrollTop: element.getBoundingClientRect().top}, 1000);
+        }
+    };
 }]);

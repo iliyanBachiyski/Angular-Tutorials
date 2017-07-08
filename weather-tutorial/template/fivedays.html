@@ -1,0 +1,16 @@
+<div class="full-screen-div fivedays">
+    <div class="header">
+        <h1>Welcome To Five Days Forecast Page</h1>
+    </div>
+    <br>
+    <a class="logout-label" href="#!/" >Back</a>
+    <weathermenu city="{{cityInput}}"></weathermenu>
+
+    <!--TODO: Must be implement style and controller -->
+    {{weatherArray}}
+    <div ng-show="weatherArray.length > 0">
+        <ul>
+            <li ng-repeat="obj in weatherArray">{{obj}}</li>
+        </ul>
+    </div>
+</div>

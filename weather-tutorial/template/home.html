@@ -1,4 +1,4 @@
-<div class="full-screen-div home">
+<div id="home" class="full-screen-div home">
     <div class="header">
         <h1>Welcome To Home Page</h1>
         <h2>Input Your City or Search By Current Location</h2><br>
@@ -6,85 +6,37 @@
     <br>
     <a class="logout-label" ng-click="logout()">Logout</a>
 
-    <div class="recent-search-list" ng-show="recentSearchesNamesList.length > 0 && showRecentSearches">
+    <weathermenu city="{{cityInput}}"></weathermenu>
+
+    <div class="form-style-10">
+        <h1 id="search-header">Search<span>Please enter city or search by current location!</span></h1>
+        <form>
+            <div class="inner-wrap">
+                <label>City <input type="text" ng-model="cityInput"></label>
+                <div ng-show="currentWeatherInformation.name">
+                    <weathertable weather="currentWeatherInformation"></weathertable>
+                </div>
+                <hr ng-show="currentWeatherInformation.name" size="5">
+                <div ng-show="weatherInfoByCurrentLocation.name">
+                    <weathertable weather="weatherInfoByCurrentLocation"></weathertable>
+                </div>
+            </div>
+            <button class="btn btn-custom-width" ng-click="getByCity(cityInput)">Search</button>
+            <button id="recent-searches" class="btn btn-custom-width" ng-show="!showRecentSearchesFlag && recentSearchesNamesList.length > 0" ng-click='showRecentSearches()'>
+                Recent Searches
+            </button><br>
+            <button class="btn btn-custom-width" ng-show="showRecentSearchesFlag && recentSearchesNamesList.length > 0" ng-click='showRecentSearches()'>
+                Hide Recent Searches
+            </button>
+            <button class="btn btn-custom-width" ng-show="!weatherInfoByCurrentLocation.name" ng-click='getByCurrentPosition()'>Search By Current Position</button>
+        </form>
+    </div>
+
+    <div id="names-list" class="recent-search-list" ng-show="recentSearchesNamesList.length > 0 && showRecentSearchesFlag">
         <ul>
             <li ng-repeat="name in recentSearchesNamesList track by $index">
                 <a class="recent-names-list" ng-click="getByCity(name)">{{name}}</a>
             </li>
         </ul>
-    </div>
-
-    <div class="form-style-10">
-        <h1>Search<span>Please enter city or search by current location!</span></h1>
-        <form>
-            <div class="inner-wrap">
-                <label>City <input type="text" ng-model="city"></label>
-                <div ng-show="currentWeatherInformation.name">
-                    <table class="hor-minimalist-a">
-                        <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Temperature</th>
-                            <th>Description</th>
-                        </tr>
-                        </thead>
-                        <tr>
-                            <td>{{currentWeatherInformation.name}},{{currentWeatherInformation.sys.country}}</td>
-                            <td>{{currentWeatherInformation.main.temp - 273.15 | number:1}} &#8451</td>
-                            <td ng-show="currentWeatherInformation.weather[0].description">{{currentWeatherInformation.weather[0].description | uppercase}}</td>
-                            <td ng-show="!currentWeatherInformation.weather[0].description">No Description for this Location!</td>
-                        </tr>
-                        <tr>
-                            <th>Humidity</th>
-                            <th>Min_Temperature</th>
-                            <th>Max_Temperature</th>
-                        </tr>
-                        </thead>
-                        <tr>
-                            <td>{{currentWeatherInformation.main.humidity}}</td>
-                            <td>{{currentWeatherInformation.main.temp_min - 273.15 | number:1}} &#8451</td>
-                            <td>{{currentWeatherInformation.main.temp_max - 273.15 | number:1}} &#8451</td>
-                        </tr>
-                    </table>
-                    <hr size="5">
-                </div>
-                <div ng-show="weatherInfoByCurrentLocation.name">
-                    <table class="hor-minimalist-a">
-                        <thead>
-                        <tr>
-                            <th>Current Location</th>
-                            <th>Temperature</th>
-                            <th>Description</th>
-                        </tr>
-                        </thead>
-                        <tr>
-                            <td>{{weatherInfoByCurrentLocation.name}},{{weatherInfoByCurrentLocation.sys.country}}</td>
-                            <td>{{weatherInfoByCurrentLocation.main.temp - 273.15 | number:1}} &#8451</td>
-                            <td ng-show="weatherInfoByCurrentLocation.weather[0].description">{{weatherInfoByCurrentLocation.weather[0].description | uppercase}}</td>
-                            <td ng-show="!weatherInfoByCurrentLocation.weather[0].description">No Description for this Location!</td>
-                        </tr>
-                        <tr>
-                            <th>Humidity</th>
-                            <th>Min_Temperature</th>
-                            <th>Max_Temperature</th>
-                        </tr>
-                        </thead>
-                        <tr>
-                            <td>{{weatherInfoByCurrentLocation.main.humidity}}</td>
-                            <td>{{weatherInfoByCurrentLocation.main.temp_min - 273.15 | number:1}} &#8451</td>
-                            <td>{{weatherInfoByCurrentLocation.main.temp_max - 273.15 | number:1}} &#8451</td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-            <button class="btn btn-custom-width" ng-click="getByCity(city)">Search</button>
-            <button class="btn btn-custom-width" ng-show="!showRecentSearches && recentSearchesNamesList.length > 0" ng-click='showRecentSearches = !showRecentSearches'>
-                Recent Searches
-            </button><br>
-            <button class="btn btn-custom-width" ng-show="showRecentSearches && recentSearchesNamesList.length > 0" ng-click='showRecentSearches = !showRecentSearches'>
-                Hide Recent Searches
-            </button>
-            <button class="btn btn-custom-width" ng-show="!weatherInfoByCurrentLocation.name" ng-click='getByCurrentPosition()'>Search By Current Position</button>
-        </form>
     </div>
 </div>

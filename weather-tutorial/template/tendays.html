@@ -1,0 +1,30 @@
+<div class="full-screen-div tendays">
+    <div class="header">
+        <h1>Welcome To Ten Days Forecast Page</h1>
+    </div>
+    <br>
+    <a class="logout-label" href="#!/" >Back</a>
+    <weathermenu city="{{cityInput}}"></weathermenu>
+
+    <div class="loading" ng-show="weatherArray.length == 0">
+        <img src="../images/loading.gif" alt="Error">
+    </div>
+
+    <div id="pricing-table" class="tendays-table" ng-show="weatherArray.length > 0">
+        <h1>{{cityInput}}</h1>
+        <div class="plan" ng-repeat="weatherObj in weatherArray">
+            <h3>{{weatherObj.conditions}}</h3>
+            <h3>{{weatherObj.date.weekday}}
+                <br>
+                <p>{{weatherObj.date.day}}-{{weatherObj.date.monthname}}-{{weatherObj.date.year}}</p>
+            </h3>
+            <!--Must be show hour-->
+            <img src="{{weatherObj.icon_url}}" alt="Error">
+            <ul>
+                <li><b>Max Temperature:</b> {{weatherObj.high.celsius}} &#8451</li>
+                <li><b>Min Temperature:</b> {{weatherObj.low.celsius}} &#8451</li>
+                <li><b>WindSpeed:</b> {{weatherObj.avewind.kph}} m/s</li>
+            </ul>
+        </div>
+    </div>
+</div>

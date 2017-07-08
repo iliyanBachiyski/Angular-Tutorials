@@ -1,0 +1,28 @@
+<div id="home" class="full-screen-div home">
+    <div class="header">
+        <h1>Welcome To Hourly Forecast Page</h1>
+    </div>
+    <br>
+    <a class="logout-label" ng-click="logout()">Logout</a>
+
+    <weathermenu city="{{cityInput}}"></weathermenu>
+
+    <div class="loading" ng-show="weatherArray.length == 0">
+        <img src="../images/loading.gif" alt="Error">
+    </div>
+
+    <div id="pricing-table" class="hourly-table" ng-show="weatherArray.length > 0">
+        <h1>{{cityInput}}</h1>
+        <div class="plan" ng-repeat="obj in weatherArray">
+            <h3>{{obj.condition}}</h3>
+            <h4>{{obj.FCTTIME.weekday_name}}, {{obj.FCTTIME.mon_padded}}-{{obj.FCTTIME.mon_abbrev}}-{{obj.FCTTIME.year}}</h4>
+            <h3>{{obj.FCTTIME.hour}}:{{obj.FCTTIME.min}}h</h3>
+            <img src="{{obj.icon_url}}" alt="Error">
+            <ul>
+                <li><b>Temperature:</b> {{obj.temp.metric}} &#8451</li>
+                <li><b>Feels Like:</b> {{obj.feelslike.metric}} &#8451</li>
+                <li><b>WindSpeed:</b> {{obj.wspd.metric}} m/s</li>
+            </ul>
+        </div>
+    </div>
+</div>

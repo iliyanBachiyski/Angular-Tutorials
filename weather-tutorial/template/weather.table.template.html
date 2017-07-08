@@ -1,0 +1,28 @@
+<div ng-show="ctrl.weather.name">
+    <table class="hor-minimalist-a">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Temperature</th>
+            <th>Description</th>
+        </tr>
+        </thead>
+        <tr>
+            <td>{{ctrl.weather.name}},{{ctrl.weather.sys.country}}</td>
+            <td>{{ctrl.weather.main.temp | number:1}} &#8451</td>
+            <td ng-show="ctrl.weather.weather[0].description">{{ctrl.weather.weather[0].description | uppercase}}</td>
+            <td ng-show="!ctrl.weather.weather[0].description">No Description for this Location!</td>
+        </tr>
+        <tr>
+            <th>Humidity</th>
+            <th>Min_Temperature</th>
+            <th>Max_Temperature</th>
+        </tr>
+        </thead>
+        <tr>
+            <td>{{ctrl.weather.main.humidity}}</td>
+            <td>{{ctrl.weather.main.temp_min | number:1}} &#8451</td>
+            <td>{{ctrl.weather.main.temp_max | number:1}} &#8451</td>
+        </tr>
+    </table>
+</div>
